@@ -7,10 +7,10 @@
     echo "Получить 4-е слово из фразы - Десять негритят пошли купаться в море" . " Ответ: " . explode(" ", $string)[3] . "\r\n";
 
     echo "Сделать заглавной первую букву во всех словах фразы - Десять негритят пошли купаться в море" . " Ответ: " . mb_convert_case($string, MB_CASE_TITLE, "UTF-8") . "\r\n";
-    
+
     if (true == 1) {
-        echo 'Is it truth, true == 1'
+        echo 'Is it truth, true == 1';
     } else {
-        echo 'Is it false'
+        echo 'Is it false';
     }
 ?>
