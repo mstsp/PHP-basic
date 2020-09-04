@@ -1,12 +1,16 @@
+
 <?php
-    $a = '12';
-    $b = '5test';
-    $boolTrue = true;
-    $boolFalse = false;
-    $intTrue = 1;
-    $intFalse = 0;
-    if ($boolTrue !== $intTrue) {
-        echo 'true';
+    $string = 'Десять негритят пошли купаться в море';
+    echo "Получить остаток деления 7 на 3." . " Ответ: " . 7 % 3 . "\r\n";
+    echo "Получить целую часть сложения 7 и 7,15." . " Ответ: " . round(7 + 7.15) . "\r\n";
+    echo "Получить корень из 25." . " Ответ: " . sqrt(25) . "\r\n";
+    echo "Получить 4-е слово из фразы - Десять негритят пошли купаться в море" . " Ответ: " . explode(" ", $string)[3] . "\r\n";
+
+    echo "Сделать заглавной первую букву во всех словах фразы - Десять негритят пошли купаться в море" . " Ответ: " . mb_convert_case($string, MB_CASE_TITLE, "UTF-8") . "\r\n";
+    
+    if (true == 1) {
+        echo 'Is it truth, true == 1'
+    } else {
+        echo 'Is it false'
     }
 ?>
-
