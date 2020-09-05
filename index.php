@@ -1,43 +1,59 @@
-
 <?php
-    $string = 'Десять негритят пошли купаться в море';
-    echo "Получить остаток деления 7 на 3." . " Ответ: " . 7 % 3 . "\r\n";
-    echo "Получить целую часть сложения 7 и 7,15." . " Ответ: " . round(7 + 7.15) . "\r\n";
-    echo "Получить корень из 25." . " Ответ: " . sqrt(25) . "\r\n";
-    echo "Получить 17-й символ из фразы - Десять негритят пошли купаться в море" . " Ответ: " . mb_substr($string, 16, 1) . "\r\n";
-    echo "Получить 4-е слово из фразы - Десять негритят пошли купаться в море" . " Ответ: " . explode(" ", $string)[3] . "\r\n";
-    echo "Сделать заглавной первую букву во всех словах фразы - Десять негритят пошли купаться в море" . " Ответ: " . mb_convert_case($string, MB_CASE_TITLE, "UTF-8") . "\r\n";
-    echo "Посчитать длину строки  - Десять негритят пошли купаться в море" . " Ответ: " . mb_strlen($string) . "\r\n";
+//    $array = [1, 2, 3, 'dog', 'apple', true, 'four' => 'test'];
+//    echo $array[3] . "\r\n";
+    $array1 = [
+        'one' => 1,
+        'two' => 2,
+        'three' => 3,
+        'four' => 'dog',
+        'five' => 'apple',
+        'six' => true
+    ];
+//    echo $array1['four'] . "\r\n";
+//    $arraySum = $array + $array1;
+//    echo var_export($arraySum) . "\r\n";
+//    echo var_export(array_values($arraySum)) . "\r\n";
+//
+    $study = [
+        'two' => 2,
+        'three' => 3,
+        'one' => 1
+    ];
+    $study1 = [
+        'three' => 3,
+        'two' => 2,
+        'one' => 1
+    ];
+    $study2 = [
+        'one' => 1,
+        'three' => 3,
+        'two' => 2
+    ];
+//    echo $study['one'] . "\r\n";
+//    echo $study1['one'] . "\r\n";
+//    echo $study2['one'] . "\r\n";
+//    echo array_values($study)[1] . "\r\n";
+//    echo array_values($study1)[1] . "\r\n";
+//    echo array_values($study2)[1] . "\r\n";
+//    echo var_export(array_slice($array1, 3, 2));
+    $arrayTree = [
+        1,
+        'two' => ['one', 'two', 'three'],
+        3,
+        'four' => [
+            'one' => 1,
+            'two' => 2,
+            'three' => 3
+        ]
+    ];
 
-    echo "Правильно ли утверждение true равно 1.";
-    if (true == 1) {
-        echo 'Да, правильно.' . "\r\n";
-    } else {
-        echo 'Нет.' . "\r\n";
-    }
+    foreach ($arrayTree as $key => $value) {
+        if (is_array($arrayTree[$key])) {
+            foreach ($arrayTree[$key] as $key1 => $value1) {
+                echo $value1 . "\r\n";
+            }
+        } else {
+            echo $value . "\r\n";
+        }
+    };
 
-    echo "Правильно ли утверждение false тождественно 0.";
-    if (false === 0) {
-        echo 'Да, правильно.' . "\r\n";
-    } else {
-        echo 'Нет.' . "\r\n";
-    }
-
-    echo "Какая строка длиннее three - три.";
-    if (substr_compare("three", "три", 0) > 0) {
-        echo 'Ответ: строка three длиннее' . "\r\n";
-    } elseif (substr_compare("three", "три", 0) < 0) {
-        echo 'Ответ: строка три длиннее' . "\r\n";
-    } else {
-        echo 'Ответ: строки равны' . "\r\n";
-    }
-
-    echo "Какое число больше 125 умножить на 13 плюс 7 или 223 плюс 28 умножить 2.";
-    $number1 = 125 * 13 + 7;
-    $number2 = 223 + 28 * 2;
-    if ($number1 > $number2) {
-        echo 'Ответ: больше 125 умножить на 13 плюс 7' . "\r\n";
-    } else {
-        echo 'Ответ: больше число 223 плюс 28 умножить 2' . "\r\n";
-    }
-?>
