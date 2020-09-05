@@ -35,7 +35,6 @@
 //    echo array_values($study)[1] . "\r\n";
 //    echo array_values($study1)[1] . "\r\n";
 //    echo array_values($study2)[1] . "\r\n";
-
 //    echo var_export(array_slice($array1, 3, 2));
     $arrayTree = [
         1,
