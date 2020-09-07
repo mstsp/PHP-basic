@@ -27,7 +27,7 @@
         'five' => 13,
         'six' => 37,
     ];
-    
+
     echo 'Найти все элементы которые отсутствуют в первом массиве и присутствуют во втором. ' . 'Ответ: ' .  var_export(array_diff($secondArr, $firstArr)) . "\r\n";
     echo 'Найти все элементы которые присутствую в первом и отсутствуют во втором. ' . 'Ответ: ' . var_export(array_diff($firstArr, $secondArr)) . "\r\n";
     echo 'Найти все элементы значения которых совпадают. ' . 'Ответ: ' . var_export(array_intersect($firstArr, $secondArr)) . "\r\n";
@@ -58,16 +58,16 @@
         'four' => 5,
         'five' => [
             'three' => 32,
-            'four' => 5,
+            'two' => 5,
             'five' => 12,
         ],
     ];
 
-    echo 'Получить все вторые элементы вложенных массивов';
+    echo 'Получить все вторые элементы вложенных массивов' . 'Ответ: ' ;
     $elementsArray = [];
     foreach ($array as $key => $value) {
         if (is_array($array[$key]) and array_key_exists('two', $array[$key])) {
-            echo 'Ответ: ' . $value['two'] . "\r\n";
+            echo $value['two'] . "\r\n";
         }
     };
 
