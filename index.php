@@ -33,14 +33,10 @@
     echo 'Найти все элементы значения которых совпадают. ' . 'Ответ: ' . var_export(array_intersect($firstArr, $secondArr)) . "\r\n";
 
     echo 'Найти все элементы значения которых отличается. ';
-    $sameKeys = array_keys(array_intersect_key($firstArr, $secondArr));
-    $diffValues = [];
-    foreach ($sameKeys as $key => $value) {
-        if ($firstArr[$key] !== $secondArr[$key]) {
-            array_push($diffValues, $key);
-        }
-    }
-    echo 'Ответ: ' . var_export($diffValues) . "\r\n";
+    $diff1 = array_diff($secondArr, $firstArr);
+    $diff2 = array_diff($firstArr, $secondArr);
+    $diff = $diff1 + $diff2;
+    echo 'Ответ: '. var_export($diff) . "\r\n";
 
     $array = [
         'one' => 1,
