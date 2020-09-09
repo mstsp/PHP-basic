@@ -1,4 +1,4 @@
-<link rel='stylesheet' href='./styles/styles.css'>
+<link rel='stylesheet' href='styles/styles.css'>
 
 <h1>Table with tag &lt;div&gt;</h1>
 
