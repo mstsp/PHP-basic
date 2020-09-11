@@ -91,7 +91,7 @@ function square($main, $inner)
 {
     $count = intdiv($main, $inner);
     $integer = pow($count, 2);
-    $fraction = ($main % $count) / 3;
+    $fraction = ($main % $count) / $count;
     if ($fraction === 0) {
         echo "В квадрат размером $main можно вписать квадрат размером $inner - $integer раз(а)";
     } else {
