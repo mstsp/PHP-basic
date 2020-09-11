@@ -89,22 +89,14 @@ sumArray($array);
 //Создать функцию которая определит сколько квадратов меньшего размера можно вписать в квадрат большего размера размер возвращать в float
 function square($main, $inner)
 {
-    $counter = 0;
-    $entierPart = 0;
-    while ($main >= $inner) {
-        $counter++;
-        $main -= $inner;
+    $count = intdiv($main, $inner);
+    $integer = pow($count, 2);
+    $fraction = ($main % $count) / 3;
+    if ($fraction === 0) {
+        echo "В квадрат размером $main можно вписать квадрат размером $inner - $integer раз(а)";
+    } else {
+        echo "В квадрат размером $main можно вписать квадрат размером $inner - $integer раз(а) и $count раз(а) по $fraction";
     }
-
-    $entierPart = $counter;
-    $counter *= $counter;
-
-    $fractionalPart = 0;
-    if ($main !== 0) {
-        $fractionalPart += $main / $inner;
-    }
-
-    echo "В квадрат размером $main поместится квадрат размером $inner - $counter раз(a) и $entierPart раз(a) по $fractionalPart";
 }
 
 square(11, 3);
