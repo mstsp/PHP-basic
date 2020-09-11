@@ -90,16 +90,21 @@ sumArray($array);
 function square($main, $inner)
 {
     $counter = 0;
+    $entierPart = 0;
     while ($main >= $inner) {
         $counter++;
         $main -= $inner;
     }
 
+    $entierPart = $counter;
+    $counter *= $counter;
+
+    $fractionalPart = 0;
     if ($main !== 0) {
-        $counter += $main / $inner;
+        $fractionalPart += $main / $inner;
     }
 
-    echo "В квадрат размером $main поместится квадрат размером $inner - $counter раза";
+    echo "В квадрат размером $main поместится квадрат размером $inner - $counter раз(a) и $entierPart раз(a) по $fractionalPart";
 }
 
-square(15, 7);
+square(11, 3);
