@@ -1,38 +1,35 @@
 <?php
 //Создать функцию определяющую какой тип данных ей передан и выводящей соответствующее сообщение, если данные не переданы то вывести соответствующее сообщение.
 
-$value = 5;
-function defineDataType($value)
+$value = 5.555;
+function defineDataType($value = NULL)
 {
-    switch (gettype($value)) {
-        case "integer":
-            echo "Переданно тип данных: integer";
-            break;
-        case "boolean":
-            echo "Переданно тип данных: boolean";
-            break;
-        case "double":
-            echo "Переданно тип данных: double";
-            break;
-        case "string":
-            echo "Переданно тип данных: string";
-            break;
-        case "array":
-            echo "Переданно тип данных: array";
-            break;
-        case "object":
-            echo "Переданно тип данных: object";
-            break;
-        case "resource":
-            echo "Переданно тип данных: resource";
-            break;
-        case "NULL":
-            echo "Переданно тип данных: NULL";
-            break;
-        default:
-            echo "Ничего не передано";
-            break;
-    }
+        switch (gettype($value)) {
+            case "integer":
+                echo "Переданно тип данных: integer";
+                break;
+            case "boolean":
+                echo "Переданно тип данных: boolean";
+                break;
+            case "double":
+                echo "Переданно тип данных: float";
+                break;
+            case "string":
+                echo "Переданно тип данных: string";
+                break;
+            case "array":
+                echo "Переданно тип данных: array";
+                break;
+            case "object":
+                echo "Переданно тип данных: object";
+                break;
+            case "resource":
+                echo "Переданно тип данных: resource";
+                break;
+            case "NULL":
+                echo "Ничего не передано";
+                break;
+        }
 
 }
 defineDataType($value);
