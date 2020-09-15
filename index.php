@@ -1,59 +1,215 @@
 <?php
-//reflex
-
-//public, protected, private
+//1) Создать родительский (главный класс)
+//Класс должен содержать 2 свойства
+//Каждое свойство должно иметь геттеры и сеттеры
+//
+//2) Создать 3 наследника родительского класса
+//Каждый наследник должен содержать одно свойство
+//Каждое свойство должно иметь геттер и сеттер
+//Наследники должны реализовать по одному методу который выполняет одно математическое действие с данными родителя и своими данными
+//Один наследник не должен быть наследуемым
+//Один из наследников должен содержать абстрактную функцию возведения в степень
+//
+//3) Создать по 2 наследника от наследников первого уровня
+//Каждое свойство должно иметь геттер и сеттер
+//Наследники должны реализовать по одному методу который выполняет одно математическое действие с данными родителя и своими данными
+//И по одному методу который выполняет любое математическое действие со свойством корневого класса и своим свойством
+//В случае если реализован наследник класса содержащего абстрактную функцию то класс должен содержать реализацию абстракции
 
 class Foo
 {
-    protected $var = 5;
+    protected $fooMin = 25;
+    protected $fooMax = 350;
 
-    public function getVar()
+    public function getMin()
     {
-        return $this->var;
+        return $this->fooMin;
     }
 
-    public function setVar($value)
+    public function setMin($value)
     {
-        $this->var = $value;
+        $this->fooMin = $value;
+    }
+
+    public function getMax()
+    {
+        return $this->fooMax;
+    }
+
+    public function setMax($value)
+    {
+        $this->fooMax = $value;
     }
 }
 
 class Bar extends Foo
 {
-    protected $var1 = 15;
+    protected $bar = 55;
 
-    public function getVar1()
+    public function getBar()
     {
-        return $this->var1;
+        return $this->bar;
     }
 
-    public function setVar1($value)
+    public function setBar($value)
     {
-        $this->var1 = $value;
+        $this->bar = $value;
     }
 
-    public function sumVar()
+    public function totalSum()
     {
-        return $this->var + $this->var1;
+        return $this->bar + $this->fooMin + $this->fooMax;
     }
 }
 
-$bar = new Bar;
-echo $bar->getVar1() . "\r\n";
-echo $bar->getVar() . "\r\n";
-echo $bar->sumVar() . "\r\n";
+abstract class Bar1 extends Foo
+{
+    protected $bar1 = 95;
 
-//$foo = new Foo;
-////var_export($foo);
-////echo $foo->var  . "\r\n";
-//$foo->setVar(10);
-//echo $foo->getVar() . "\r\n";
-////echo $foo->var . "\r\n";
-////$foo->var = 15;
-////echo $foo->var . "\r\n";
-//
-//$foo1 = new Foo;
-//echo $foo1->getVar() . "\r\n";
+    public function getBar1()
+    {
+        return $this->bar1;
+    }
 
-//ДЗ от родителя сделать трех наследников. От этих наследников от двух сделать еще по одному. Одного наследника сделать финальным (final). И в паренте выписать выписать абстрактную функцию.
-//
+    public function setBar1($value)
+    {
+        $this->bar1 = $value;
+    }
+
+    public function totalDivision()
+    {
+        return $this->bar1 / $this->fooMin / $this->fooMax;
+    }
+
+    abstract protected function powNumber($exponent);
+}
+
+final class Bar2 extends Foo
+{
+    protected $bar2 = 45;
+
+    public function getBar2()
+    {
+        return $this->bar2;
+    }
+
+    public function setBar2($value)
+    {
+        $this->bar2 = $value;
+    }
+
+    public function totalMultiplication()
+    {
+        return $this->bar2 * $this->fooMin * $this->fooMax;
+    }
+}
+
+class Baz1 extends Bar
+{
+    protected $baz1 = 70;
+
+    public function getBaz1()
+    {
+        return $this->baz1;
+    }
+
+    public function setBaz1($value)
+    {
+        $this->baz1 = $value;
+    }
+
+    public function parentSum()
+    {
+        return $this->bar + $this->baz1;
+    }
+
+    public function rootSum()
+    {
+        return $this->fooMin + $this->baz1;
+    }
+}
+
+class Baz2 extends Bar
+{
+    protected $baz2 = 70;
+
+    public function getBaz2()
+    {
+        return $this->baz2;
+    }
+
+    public function setBaz2($value)
+    {
+        $this->baz2 = $value;
+    }
+
+    public function parentDeduct()
+    {
+        return $this->baz2 - $this->bar;
+    }
+
+    public function rootDeduct()
+    {
+        return $this->fooMax - $this->baz2;
+    }
+}
+
+class Baz11 extends Bar1
+{
+    protected $baz11 = 70;
+
+    public function getBaz11()
+    {
+        return $this->baz11;
+    }
+
+    public function setBaz11($value)
+    {
+        $this->baz11 = $value;
+    }
+
+    public function parentSum()
+    {
+        return $this->bar1 + $this->baz11;
+    }
+
+    public function rootSum()
+    {
+        return $this->fooMax + $this->baz11;
+    }
+
+    public function powNumber($exponent)
+    {
+        return pow($this->baz11, $exponent);
+    }
+}
+
+class Baz12 extends Bar1
+{
+    protected $baz12 = 137;
+
+    public function getBaz12()
+    {
+        return $this->baz12;
+    }
+
+    public function setBaz12($value)
+    {
+        $this->baz12 = $value;
+    }
+
+    public function parentDeduct()
+    {
+        return $this->bar1 - $this->baz12;
+    }
+
+    public function rootDeduct()
+    {
+        return $this->fooMax - $this->baz12;
+    }
+
+    public function powNumber($exponent)
+    {
+        return pow($this->baz12, $exponent);
+    }
+}
